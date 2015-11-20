@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>wiki.php - <?php echo $config['title'];?></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/_theme/default/sass/favicon.png">
+    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/responsive.css">
+    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/main.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body class="page page-id-2 page-template-default">
+
+        <!-- Start of Header -->
+        <div class="header-wrapper">
+            <header>
+                <div class="container">
+
+                    <div class="logo-container">
+                        <!-- Website Logo -->
+                        <a href="#" title="wiki.php">
+                            <img src="./_theme/default/sass/logo.png" alt="wiki.php">
+                        </a>
+                        <span class="tag-line">用Markdown写wiki是一种什么样的体验？</span>
+                    </div>
+
+                    <!-- Start of Main Navigation -->
+                    <nav class="main-nav">
+                        <div class="menu-top-menu-container">
+                            <ul id="menu-top-menu" class="clearfix">
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266">
+                                    <a href="#">Home</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- End of Main Navigation -->
+
+                </div>
+            </header>
+        </div>
+        <!-- End of Header -->
+
+<!-- Start of Search Wrapper -->
+<div class="search-area-wrapper">
+    <div class="search-area container">
+        <h3 class="search-header"><?php echo $config['title'];?></h3>
+        <p class="search-tag-line"><?php echo $config['summary'];?></p>
+    </div>
+</div>
+<!-- End of Search Wrapper -->
+
+<!-- Start of Page Container -->
+<div class="page-container">
+    <div class="container">
+        <div class="row">
+
+            <!-- start of page content -->
+            <div class="span8 page-content">
+                <article class="clearfix post-2 page type-page status-publish hentry">
+                    <?php echo $html;?>
+                </article>
+            </div>
+            <!-- end of page content -->
+
+            <!-- start of sidebar -->
+            <aside class="span4 page-sidebar">
+                    <section class="widget">
+                        <h3 class="title">Login</h3>
+                    </section>
+                    <section class="widget">
+                        <h3 class="title">Latest Articles</h3>
+                        <ul class="articles">
+                            <li class="article-entry standard"> <a href="#">1. This is an example page</a> </li>
+                        </ul>
+                    </section>
+            </aside>
+            <!-- end of sidebar -->
+        </div>
+    </div>
+</div>
+<!-- End of Page Container -->
+
+
+<!-- Start of Footer -->
+<footer id="footer-wrapper">
+
+    <!-- Footer Bottom -->
+    <div id="footer-bottom-wrapper">
+        <div id="footer-bottom" class="container">
+            <div class="row">
+                <div class="span6">
+                    <p class="copyright">
+                        Copyright © 2013. All Rights Reserved by KnowledgeBase.
+                    </p>
+                </div>
+                <div class="span6">
+                        <ul class="social-nav clearfix">
+                            <li class="facebook">
+                                <a target="_blank" href="#"></a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Footer Bottom -->
+
+</footer>
+<!-- End of Footer -->
+
+
+</body>
+</html>
