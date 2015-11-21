@@ -8,7 +8,7 @@ include ROOTDIRECTORY_PATH.'_includes/Parsedown.php';
 include ROOTDIRECTORY_PATH.'_includes/simple_html_dom.php';
 include ROOTDIRECTORY_PATH.'_includes/match_title.class.php';
 
-$content   = file_get_contents(ROOTDIRECTORY_PATH.'_posts/'.$file);
+$content = file_get_contents(ROOTDIRECTORY_PATH.'_posts/'.$file);
 
 
 $config = array();
