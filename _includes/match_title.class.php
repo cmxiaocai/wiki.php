@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 匹配Markdown标题
+ * @author http://www.xiaocai.name/about/
+ * @since  2015-11-21
+ */
 class MatchTitle{
 
     private $_titles;
