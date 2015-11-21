@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>wiki.php - <?php echo $config['title'];?></title>
+    <title><?php if(isset($config['title'])) echo $config['title'].' - ';?>wiki.php</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +68,7 @@
             <!-- start of page content -->
             <div class="span8 page-content">
                 <article class="clearfix post-2 page type-page status-publish hentry">
-                    <?php echo $html;?>
+                    <?php echo $html_dom;?>
                 </article>
             </div>
             <!-- end of page content -->
