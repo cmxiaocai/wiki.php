@@ -75,15 +75,27 @@
 
             <!-- start of sidebar -->
             <aside class="span4 page-sidebar">
-                    <section class="widget">
-                        <h3 class="title">Login</h3>
-                    </section>
-                    <section class="widget">
-                        <h3 class="title">Latest Articles</h3>
-                        <ul class="articles">
-                            <li class="article-entry standard"> <a href="#">1. This is an example page</a> </li>
-                        </ul>
-                    </section>
+                <section class="widget">
+                <div style="height: 30px;">
+                    <b style="font-size:16px;">索引导航</b>
+                    <a style="float:right;" href="#">[编辑本页]</a>
+                </div>
+                <ul>
+                <?php
+                    foreach ($titles as $h1 => $h2) {
+                        echo "<ul>";
+                        echo "<a href='#{$h1}'>{$h1}</a>";
+                        foreach ($h2 as $title) {
+                            echo "<li><a href='#{$title}'>{$title}</a></li>";
+                        }
+                        echo "</ul>";
+                    }
+                ?>
+                </ul>
+                <!-- <ul class="articles">
+                    <li class='article-entry standard'> <a href='#'>xxxx</a> </li>
+                </ul> -->
+                </section>
             </aside>
             <!-- end of sidebar -->
         </div>
@@ -101,7 +113,7 @@
             <div class="row">
                 <div class="span6">
                     <p class="copyright">
-                        Copyright © 2013. All Rights Reserved by KnowledgeBase.
+                        Copyright © 2013. All Rights Reserved by 「wiki.php」.
                     </p>
                 </div>
                 <div class="span6">
@@ -121,4 +133,5 @@
 
 
 </body>
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
 </html>
