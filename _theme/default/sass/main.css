@@ -1508,6 +1508,21 @@ a#scroll-top:hover {
   margin-right: 2px;
 }
 
+.widget {
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+.fixed {
+  position: fixed;
+  z-index: 9;
+}
+.widget.fixed {
+  top: 1em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  background: #fff;
+} 
+
 /*------------------------------------------------------------------------------------------------------------------- */
 /* CUSTOM RESPONSIVE CSS -------------------------------------------------------------------------------------------- */
 /*------------------------------------------------------------------------------------------------------------------- */
@@ -1678,6 +1693,8 @@ a#scroll-top:hover {
     line-height: 105px;
     margin: 15px;
   }
+
+  .widget { display: none;}
 }
 /*------------------------------------------------------------------------------------------------------------------- */
 /* Responsive: Portrait Phones -------------------------------------------------------------------------------------- */
@@ -1714,6 +1731,7 @@ a#scroll-top:hover {
   #jquery-live-search #live-search-results {
     width: 248px;
   }
+
 }
 /* Menu Fix for resizing to Bigger Screen sizes */
 @media (min-width: 980px) {

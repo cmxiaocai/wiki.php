@@ -128,8 +128,22 @@
 
 </footer>
 <!-- End of Footer -->
+<script src="./_theme/default/sass/jquery.min.js"></script>
+<script type="text/javascript">
+var wPos = $('.widget').position().top;
+$(window).resize(function(){
+    $('.widget').addClass('fixed').width( $('.page-sidebar').width() );
+});
+$(window).scroll(function(){
+    var sTop = $(this).scrollTop();
+    if (sTop > wPos) {
+        $('.widget').addClass('fixed').width( $('.page-sidebar').width() );
+    }else{
+        $('.widget').removeClass('fixed');
+    };
+});
 
-
+</script>
 </body>
-<!-- <script src="./_theme/default/sass/jquery.min.js"></script> -->
+
 </html>
