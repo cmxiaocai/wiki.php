@@ -11,7 +11,7 @@ class MatchTitle{
 
     public function __construct($html_dom){
         $this->_titles = array();
-        $this->DOM    = $html_dom;
+        $this->DOM     = str_get_html($html_dom);
     }
 
     public function makeTitle($tag_name){
