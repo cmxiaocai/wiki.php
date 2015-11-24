@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 解析Markdown中的配置
+ * @author http://www.xiaocai.name/about/
+ * @since  2015-11-24
+ */
 class parseConfig{
 
     private $_conf;
@@ -35,6 +39,9 @@ class parseConfig{
     }
 
     public function getContent(){
+        if(empty($this->_matches)){
+            return $this->_content;
+        }
         return str_replace($this->_matches[0], '', $this->_content);
     }
     public function getConf(){

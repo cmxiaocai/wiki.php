@@ -28,4 +28,9 @@ $Match->find();
 $html_dom = $Match->getDom();
 $titles   = $Match->getTreeData();
 
+$viewfile = ROOTDIRECTORY_PATH.'/_theme/'.THEME.'/'.$config['layout'];
+if(empty($config['layout']) || file_exists($viewfile)){
+    echo $html_dom;
+    exit();
+}
 include ROOTDIRECTORY_PATH.'/_theme/'.THEME.'/'.$config['layout'];
