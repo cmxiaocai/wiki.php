@@ -1,3 +1,8 @@
+<?php
+    $config      = $GLOBALS['template_data']['config'];
+    $html        = $GLOBALS['template_data']['html'];
+    $menu_titles = $GLOBALS['template_data']['menu_titles'];
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -7,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="/_theme/default/sass/favicon.png">
-    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./_theme/default/sass/responsive.css">
     <link rel="stylesheet" type="text/css" href="./_theme/default/sass/main.css">
 
@@ -28,7 +33,7 @@
 
                     <div class="logo-container">
                         <!-- Website Logo -->
-                        <a href="#" title="wiki.php">
+                        <a href="/" title="wiki.php">
                             <img src="./_theme/default/sass/logo.png" alt="wiki.php">
                         </a>
                         <span class="tag-line">用Markdown写wiki是一种什么样的体验？</span>
@@ -67,15 +72,15 @@
         <div class="row">
 
             <!-- start of page content -->
-            <div class="span8 page-content">
+            <div class="col-md-8 page-content">
                 <article class="clearfix post-2 page type-page status-publish hentry">
-                    <?php echo $html_dom;?>
+                    <?php echo $html;?>
                 </article>
             </div>
             <!-- end of page content -->
 
             <!-- start of sidebar -->
-            <aside class="span4 page-sidebar">
+            <aside class="col-md-4 page-sidebar">
                 <section class="widget">
                 <div style="height: 30px;">
                     <b style="font-size:16px;">索引导航</b>
@@ -83,7 +88,10 @@
                 </div>
                 <ul>
                 <?php
-                    foreach ($titles as $h1 => $h2) {
+                    if( empty($menu_titles) ){
+                        echo '<small><em>Markdown中未匹配到h1标题,无法建立索引导航.</em></small>';
+                    }
+                    foreach ($menu_titles as $h1 => $h2) {
                         echo "<ul>";
                         echo "<a href='#{$h1}'>{$h1}</a>";
                         foreach ($h2 as $title) {
@@ -109,15 +117,17 @@
     <div id="footer-bottom-wrapper">
         <div id="footer-bottom" class="container">
             <div class="row">
-                <div class="span6">
-                    <p class="copyright">
-                        Copyright © 2015. All Rights Reserved by 「wiki.php」.
+                <div class="col-md-6">
+                    <p class="copyright" style="color:#fff;">
+                        Copyright © 2016. All Rights Reserved by 「<a style="color:#fff;" target="_blank" href="https://github.com/cmxiaocai/wiki.php">wiki.php</a>」.
                     </p>
                 </div>
-                <div class="span6">
+                <div class="col-md-6">
                         <ul class="social-nav clearfix">
-                            <li class="facebook">
-                                <a target="_blank" href="#"></a>
+                            <li>
+                                <a target="_blank" href="https://github.com/cmxiaocai/wiki.php">
+                                    <img src="/_theme/default/sass/github.png" style="width:30px;height:30px;" />
+                                </a>
                             </li>
                         </ul>
                 </div>
@@ -128,7 +138,7 @@
 
 </footer>
 <!-- End of Footer -->
-<script src="./_theme/default/sass/jquery.min.js"></script>
+<script src="./_theme/default/sass/js/jquery.min.js"></script>
 <script type="text/javascript">
 var wPos = $('.widget').position().top;
 $(window).resize(function(){
@@ -136,7 +146,7 @@ $(window).resize(function(){
 });
 $(window).scroll(function(){
     var sTop = $(this).scrollTop();
-    if (sTop > wPos) {
+    if (sTop > wPos+100) {
         $('.widget').addClass('fixed').width( $('.page-sidebar').width() );
     }else{
         $('.widget').removeClass('fixed');

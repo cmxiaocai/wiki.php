@@ -1,6 +1,7 @@
 <?php
-    $lists = $GLOBALS['template_data']['lists'];
-    $path  = $GLOBALS['template_data']['path'];
+    $lists  = $GLOBALS['template_data']['lists'];
+    $path   = $GLOBALS['template_data']['path'];
+    $config = $GLOBALS['template_data']['config'];
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -11,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="/_theme/default/sass/favicon.png">
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./_theme/default/sass/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./_theme/default/sass/responsive.css">
     <link rel="stylesheet" type="text/css" href="./_theme/default/sass/main.css">
 
@@ -32,7 +33,7 @@
 
                     <div class="logo-container">
                         <!-- Website Logo -->
-                        <a href="#" title="wiki.php">
+                        <a href="/" title="wiki.php">
                             <img src="./_theme/default/sass/logo.png" alt="wiki.php">
                         </a>
                         <span class="tag-line">献给常用Markdown写作的码农.</span>
@@ -58,10 +59,13 @@
 <!-- Start of Search Wrapper -->
 <div class="search-area-wrapper">
     <div class="search-area container">
+        <?php if(isset($config['title'])){
+            echo '<h3 class="search-header">'.$config['title'].'</h3>';
+        } ?>
+        <?php if(isset($config['summary'])){
+            echo '<p class="search-tag-line" style="margin-bottom: 0px;">'.$config['summary'].'</p>';
+        } ?>
         <br>
-        <!-- <h3 class="search-header"><?php echo $config['title'];?></h3>
-        <p class="search-tag-line" style="margin-bottom: 0px;"><?php echo $config['summary'];?></p>
-        <p class="search-tag-line" style="text-align:right;">Last updated at <?php echo $config['date'];?></p> -->
     </div>
 </div>
 <!-- End of Search Wrapper -->
@@ -122,15 +126,17 @@
     <div id="footer-bottom-wrapper">
         <div id="footer-bottom" class="container">
             <div class="row">
-                <div class="span6">
-                    <p class="copyright">
-                        Copyright © 2015. All Rights Reserved by 「wiki.php」.
+                <div class="col-md-6">
+                    <p class="copyright" style="color:#fff;">
+                        Copyright © 2016. All Rights Reserved by 「<a style="color:#fff;" target="_blank" href="https://github.com/cmxiaocai/wiki.php">wiki.php</a>」.
                     </p>
                 </div>
-                <div class="span6">
+                <div class="col-md-6">
                         <ul class="social-nav clearfix">
-                            <li class="facebook">
-                                <a target="_blank" href="#"></a>
+                            <li>
+                                <a target="_blank" href="https://github.com/cmxiaocai/wiki.php">
+                                    <img src="/_theme/default/sass/github.png" style="width:30px;height:30px;" />
+                                </a>
                             </li>
                         </ul>
                 </div>
