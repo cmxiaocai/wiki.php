@@ -30,8 +30,10 @@ class parseConfig{
         if(empty($this->_matches)){
             return;
         }
-        $config_text = trim(strip_tags($this->_matches[0]));
-        $config_text = explode('<br />', nl2br($config_text));
+        $config_text = trim($this->_matches[0]);
+        $config_text = str_replace('<wiki type="config">', '', $config_text);
+        $config_text = str_replace('</wiki>', '', $config_text);
+        $config_text = explode('<br />', nl2br(trim($config_text)));
         foreach ($config_text as $line) {
             list($key, $val) = explode('=', $line);
             $this->_conf[trim($key)] = trim($val);

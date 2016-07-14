@@ -37,6 +37,12 @@ class ParseFileType{
         exit();
     }
 
+    public function makeOther($runfunction){
+        if( !file_exists($this->_filepath) ) return;
+        call_user_func($runfunction, $this->_filepath);
+        exit();
+    }
+
     public function getMime(){
         return $this->_file_mime;
     }

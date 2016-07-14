@@ -1,36 +1,35 @@
 <?php
 define('ROOTDIRECTORY_PATH', dirname(__FILE__).'/');
 define('THEME', 'default');
+define('POSTS', '_posts');
 
-$file = $_GET['read'];
 
-include ROOTDIRECTORY_PATH.'_includes/Parsedown.php';
-include ROOTDIRECTORY_PATH.'_includes/simple_html_dom.php';
-include ROOTDIRECTORY_PATH.'_includes/match_title.class.php';
-include ROOTDIRECTORY_PATH.'_includes/parse_config.class.php';
+include ROOTDIRECTORY_PATH.'_includes/bootstrap.php';
 
-$content   = file_get_contents(ROOTDIRECTORY_PATH.'_posts/'.$file);
+$file = isset($_GET['read']) ? $_GET['read'] : '';
 
-$ClsConfig = new parseConfig($content);
-$config    = $ClsConfig->getConf();
-$content   = $ClsConfig->getContent();
+$ParseRoute = new ParseFileType($file);
 
-$Parsedown = new Parsedown();
-$html      = $Parsedown->setBreaksEnabled(true)
-                       ->setMarkupEscaped(true)
-                       ->setUrlsLinked(false)
-                       ->text($content); 
+$ParseRoute->makeMarkdown(function($file){
+    $MakeDom = new MakePagePosts();
+    $MakeDom->readFile($file);
+    $MakeDom->parseConfig();
+    $MakeDom->parseHtml();
+    $MakeDom->matchMenu();
+    $MakeDom->display();
+});
 
-$Match = new MatchTitle($html);
-$Match->makeTitle('h1');
-$Match->makeTitle('h2');
-$Match->find();
-$html_dom = $Match->getDom();
-$titles   = $Match->getTreeData();
+$ParseRoute->makeFileList(function($file){
+    $MakeDom = new MakePageList();
+    $MakeDom->setDir($file);
+    $MakeDom->parseConfig();
+    $MakeDom->readDir();
+    $MakeDom->display();
+});
 
-$viewfile = ROOTDIRECTORY_PATH.'/_theme/'.THEME.'/'.$config['layout'];
-if(empty($config['layout']) || file_exists($viewfile)){
-    echo $html_dom;
-    exit();
-}
-include ROOTDIRECTORY_PATH.'/_theme/'.THEME.'/'.$config['layout'];
+$ParseRoute->makeOther(function($file){
+    $request_uri = str_replace(ROOTDIRECTORY_PATH, '/', $file);
+    header("Location: {$request_uri}");
+});
+
+//echo $ParseRoute->getMime();

@@ -4,7 +4,7 @@ class MakePagePosts{
 
     public function readFile($file){
         $this->_file = $file;
-        $this->_text = file_get_contents(ROOTDIRECTORY_PATH.POSTS.'/'.$file);
+        $this->_text = file_get_contents($file);
     }
 
     public function parseConfig(){
@@ -15,7 +15,7 @@ class MakePagePosts{
             $this->_config['title'] = basename($this->_file);
         }
         if(!$this->_config['date']){
-            $mdate = filemtime(ROOTDIRECTORY_PATH.POSTS.'/'.$this->_file);
+            $mdate = filemtime($this->_file);
             $this->_config['date'] = date('Y-m-d H:i:s', $mdate);
         }
     }
@@ -41,8 +41,7 @@ class MakePagePosts{
         $layout = isset($this->_config['layout']) ? $this->_config['layout'] : 'post.html';
         $GLOBALS['template_data'] = array(
             'config'      => $this->_config,
-            'html'        => $this->_html,
-            'menu_html'   => $this->_menu_html,
+            'html'        => $this->_menu_html,
             'menu_titles' => $this->_menu_titles,
         );
         include ROOTDIRECTORY_PATH.'_theme/'.THEME.'/'.$layout;

@@ -59,12 +59,20 @@
 <!-- Start of Search Wrapper -->
 <div class="search-area-wrapper">
     <div class="search-area container">
-        <?php if(isset($config['title'])){
+        <?php 
+        if(isset($config['title'])){
             echo '<h3 class="search-header">'.$config['title'].'</h3>';
-        } ?>
-        <?php if(isset($config['summary'])){
+        }else{
+            echo '<h3 class="search-header">'.$path.'</h3>';
+        }
+        ?>
+        <?php 
+        if(isset($config['summary'])){
             echo '<p class="search-tag-line" style="margin-bottom: 0px;">'.$config['summary'].'</p>';
-        } ?>
+        }else{
+            echo '<p class="search-tag-line" style="margin-bottom: 0px;">您可以在该目录下创建.conf文件，用于定义该页面备注和样式。</p>';
+        }
+        ?>
         <br>
     </div>
 </div>
@@ -91,7 +99,7 @@
         <tr>
           <td>
              <span class="glyphicon glyphicon-folder-close"></span>
-             <a href="/?read=<?php echo $path.'/'.$value['name'];?>"><?php echo $path.'/'.$value['name'].'/';?></a>
+             <a href="/?read=<?php echo $path.'/'.$value['name'];?>"><?php echo '/'.$value['name'];?></a>
           </td>
           <td><?php echo $value['size'];?></td>
           <td><?php echo date('Y-m-d H:i', $value['mtime']);?></td>
