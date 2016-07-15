@@ -2,6 +2,9 @@
 
 > wiki.php运行在php平台，是基于Markdown的wiki程序。你的Markdown存放在 wiki.php/_posts 目录下，以.md后缀的文件形式存放，程序简陋不支持在线编辑和备份，你可以尝试将_posts目录纳入git或svn中达到团队协作。
 
+![](https://raw.githubusercontent.com/cmxiaocai/cmxiaocai.github.io/master/uploads/wiki01.png)
+![](https://raw.githubusercontent.com/cmxiaocai/cmxiaocai.github.io/master/uploads/wiki02.png)
+
 ## 如何使用
 
 **检出代码:**
