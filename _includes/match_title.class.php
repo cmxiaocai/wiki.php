@@ -7,18 +7,22 @@
 class MatchTitle{
 
     private $_titles;
+    private $_html;
     private $DOM;
 
     public function __construct($html_dom){
         $this->_titles = array();
+        $this->_html   = $html_dom;
         $this->DOM     = str_get_html($html_dom);
     }
 
     public function makeTitle($tag_name){
         $dom = $this->DOM->find($tag_name);
         foreach($dom as $index => $tag){
-            $name = $tag->innertext;
-            $tag->outertext="<{$tag_name} id='{$name}' index='{$index}'>{$name}</{$tag_name}>";
+            $name        = $tag->innertext;
+            $outertext   = "<{$tag_name} id='{$name}' index='{$index}'>{$name}</{$tag_name}>";
+            $this->_html = str_replace($tag->outertext, $outertext, $this->_html);
+            $tag->outertext = $outertext;
         }
     }
 
@@ -51,6 +55,10 @@ class MatchTitle{
 
     public function getDom(){
         return $this->DOM;
+    }
+
+    public function getHtml(){
+        return $this->_html;
     }
 
     public function getTreeData(){

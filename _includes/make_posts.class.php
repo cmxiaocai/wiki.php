@@ -33,7 +33,7 @@ class MakePagePosts{
         $Match->makeTitle('h1');
         $Match->makeTitle('h2');
         $Match->find();
-        $this->_menu_html   = $Match->getDom();
+        $this->_menu_html   = $Match->getHtml();
         $this->_menu_titles = $Match->getTreeData();
     }
 
