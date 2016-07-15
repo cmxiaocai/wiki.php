@@ -32,7 +32,7 @@
 
 ## 目录结构
 
-    -_includes                         项目类文件
+    -_includes                       项目类文件
         ├─ bootstrap.php             用于引如其他文件
         ├─ make_lists.class.php      生成列表页
         ├─ make_posts.class.php      生成内容页
@@ -41,10 +41,10 @@
         ├─ parse_filetype.class.php  解析文件类型
         ├─ Parsedown.php             Markdown转换html
         └─ simple_html_dom.php       dom解析
-    -_posts                            你的Markdown文件存放在这里
+    -_posts                          你的Markdown文件存放在这里
         ├─ .conf                     用于配置列表页面的示例文件
         └─ demo.md                   Markdown示例文件
-    -_theme                            样式风格
+    -_theme                          样式风格
         ├─ +images                   图片资源
         ├─ +sass                     模板样式
         ├─ lists.html                默认列表模板
